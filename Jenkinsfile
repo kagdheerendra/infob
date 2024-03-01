@@ -6,8 +6,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-			    sh 'cd dummygradle'
-                sh 'gradle clean build -x test'
+			    bat 'cd dummygradle'
+                bat 'gradle clean build -x test'
             }
         }
     }
