@@ -12,7 +12,7 @@ pipeline {
         stage('SonarQube Analysis') { 
 		   steps {
 			   script {
-			   def scannerHome = tool 'sonarqube';
+			   def scannerHome = tool 'sonarqube-8.9.10.61524';
 				   withSonarQubeEnv("sonarqube-container") {
 				   bat "${tool("sonarqube")}/bin/sonar-scanner \
 				   -Dsonar.projectKey=employeemanagement1 \
