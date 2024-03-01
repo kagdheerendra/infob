@@ -10,8 +10,8 @@ pipeline {
             }
         }
 		stage('Code Quality Check via SonarQube') {
-		    steps {
-                bat 'gradle sonarqube'
+			withSonarQubeEnv() { // Will pick the global server connection you have configured
+			  bat 'gradlew sonarqube'
 			}
         }
         stage('Build') {
