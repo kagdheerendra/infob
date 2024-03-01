@@ -7,7 +7,7 @@ pipeline {
         stage('Build') {
             steps {
 			    bat 'cd dummygradle'
-                bat 'gradle clean build -x test'
+                bat 'gradle clean build'
             }
         }
     }
