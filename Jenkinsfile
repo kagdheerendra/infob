@@ -9,10 +9,21 @@ pipeline {
 			    bat 'cd dummygradle'
             }
         }
-		stage('Code Quality Check via SonarQube') {
-			withSonarQubeEnv() { // Will pick the global server connection you have configured
-			  bat 'gradlew sonarqube'
-			}
+        stage('SonarQube Analysis') { 
+		   steps {
+			   script {
+			   def scannerHome = tool 'sonarqube';
+				   withSonarQubeEnv("sonarqube-container") {
+				   bat "${tool("sonarqube")}/bin/sonar-scanner \
+				   -Dsonar.projectKey=employeemanagement1 \
+				   -Dsonar.sources=. \
+				   -Dsonar.css.node=. \
+				   -Dsonar.host.url=http://localhost:9000 \
+				   -Dsonar.login=1d52371b8f0c9bb0698a9b650975113d51560a56"
+					   }
+				   }
+			   }
+		   }
         }
         stage('Build') {
             steps {
