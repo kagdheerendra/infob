@@ -9,6 +9,11 @@ pipeline {
 			    bat 'cd dummygradle'
             }
         }
+		stage('Build') {
+            steps {
+			    bat 'gradle build'
+            }
+        }
         stage('SonarQube Analysis') { 
 		   steps {
 			   script {
@@ -23,11 +28,6 @@ pipeline {
 				   }
 			   }
 		   }
-        }
-        stage('Build') {
-            steps {
-			    bat 'gradle build'
-            }
         }
     }
 }
