@@ -19,10 +19,8 @@ pipeline {
 		steps {
 			withSonarQubeEnv('sonarqubeserver') {
 				bat "${scannerHome}/bin/sonar-scanner \
-				-Dsonar.sources=./dummygradle/src/main/ \
-				-Dsonar.binaries=./build/classes \
-				-Dsonar.junit.reportPaths=./build/test-results/test \
-				-Dsonar.coverage.jacoco.xmlReportPaths=./build/reports/jacoco/test/html/index.html \
+				-Dsonar.sources=/dummygradle/src/main/ \
+				-Dsonar.binaries=/build/classes \
 				-Dsonar.projectKey=employeemgmt23"
 			}
 		}
