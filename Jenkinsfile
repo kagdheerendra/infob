@@ -20,7 +20,7 @@ pipeline {
 				   def scannerHome = tool 'sonarqube-8.9.10.61524';
 					   withSonarQubeEnv("sonarqube-8.9.10.61524") {
 					   bat "${tool("sonarqube-8.9.10.61524")}/bin/sonar-scanner \
-					   -Dsonar.projectKey=employeemanagement1 \
+					   -Dsonar.projectKey=employeemgmt \
 					   -Dsonar.sources=. \
 					   -Dsonar.css.node=. \
 					   -Dsonar.analysis.mode= \
