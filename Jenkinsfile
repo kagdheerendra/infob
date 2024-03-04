@@ -20,10 +20,13 @@ pipeline {
       }
       steps {
         withSonarQubeEnv('sonarqubeserver') {
-            bat '''$SCANNER_HOME/bin/sonar-scanner -Dsonar.organization=$ORGANIZATION \
-            -Dsonar.java.binaries=build/classes/java/ \
-            -Dsonar.projectKey=$PROJECT_NAME \
-            -Dsonar.sources=.'''
+		   bat "${tool("sonarqubescanner")}/bin/sonar-scanner \
+		   -Dsonar.projectKey=employeemgmt \
+		   -Dsonar.sources=. \
+		   -Dsonar.css.node=. \
+		   -Dsonar.analysis.mode= \
+		   -Dsonar.host.url=http://localhost:9000 \
+		   -Dsonar.login=1d52371b8f0c9bb0698a9b650975113d51560a56"
         }
       }
     }
