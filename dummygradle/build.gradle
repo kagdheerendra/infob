@@ -7,7 +7,7 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-        classpath("org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.6")
+        classpath("org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.0")
     }
 }
 
@@ -36,7 +36,7 @@ sonarqube {
         property "sonar.login", "admin"
         property "sonar.password", "Admin123"
         property "sonar.projectKey", "employeemanagement1"
-        property 'sonar.projectName', 'employeemanagement1234'
+        property 'sonar.projectName', 'emp'
         property 'sonar.java.source', 8
         property 'encoding', 'UTF-8'
         property 'charSet', 'UTF-8'
