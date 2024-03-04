@@ -21,9 +21,7 @@ pipeline {
 		   bat "${tool("sonarqubescanner")}/bin/sonar-scanner \
 		   -Dsonar.projectKey=employeemgmt1 \
 		   -Dsonar.sources=. \
-		   -Dsonar.java.binaries=build/**/* \
-		   -Dsonar.language=java \
-		   -Dsonar.analysis.mode= \
+		   -Dsonar.java.source=8 \
 		   -Dsonar.host.url=http://localhost:9000 \
 		   -Dsonar.login=1d52371b8f0c9bb0698a9b650975113d51560a56"
         }
