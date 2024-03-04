@@ -15,13 +15,11 @@ pipeline {
     stage('SonarCloud') {
       environment {
         SCANNER_HOME = tool 'sonarqubescanner'
-        ORGANIZATION = "igorstojanovski-github"
-        PROJECT_NAME = "igorstojanovski_jenkins-pipeline-as-code"
       }
       steps {
         withSonarQubeEnv('sonarqubeserver') {
 		   bat "${tool("sonarqubescanner")}/bin/sonar-scanner \
-		   -Dsonar.projectKey=employeemgmt \
+		   -Dsonar.projectKey=employeemgmt1 \
 		   -Dsonar.sources=. \
 		   -Dsonar.java.binaries=build/**/* \
 		   -Dsonar.language=java \
