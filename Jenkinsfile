@@ -17,9 +17,9 @@ pipeline {
         stage('SonarQube Analysis') { 
 		   steps {
 			   script {
-				   def scannerHome = tool 'sonarqube-8.9.10.61524';
-					   withSonarQubeEnv("sonarqube-8.9.10.61524") {
-					   bat "${tool("sonarqube-8.9.10.61524")}/bin/sonar-scanner \
+				   def scannerHome = tool 'sonarqubescanner';
+				   withSonarQubeEnv("sonarqubeserver") {
+					   bat "${tool("sonarqubescanner")}/bin/sonar-scanner \
 					   -Dsonar.projectKey=employeemgmt \
 					   -Dsonar.sources=. \
 					   -Dsonar.css.node=. \
