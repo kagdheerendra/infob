@@ -15,12 +15,12 @@ pipeline {
     stage('SonarCloud') {
       environment {
         SCANNER_HOME = tool 'sonarqubescanner'
-        SONAR_TOKEN = credentials('SonarCloudOne')
+        SONAR_TOKEN = credentials('SonarQube Access Token')
         ORGANIZATION = "igorstojanovski-github"
         PROJECT_NAME = "igorstojanovski_jenkins-pipeline-as-code"
       }
       steps {
-        withSonarQubeEnv(installationName: 'sonarqubeserver', credentialsId: 'SonarCloudOne') {
+        withSonarQubeEnv(installationName: 'sonarqubeserver', credentialsId: 'SonarQube Access Token') {
             bat '''$SCANNER_HOME/bin/sonar-scanner -Dsonar.organization=$ORGANIZATION \
             -Dsonar.java.binaries=build/classes/java/ \
             -Dsonar.projectKey=$PROJECT_NAME \
