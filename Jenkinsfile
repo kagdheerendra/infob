@@ -20,7 +20,7 @@ pipeline {
 			withSonarQubeEnv('sonarqubeserver') {
 				bat "${scannerHome}/bin/sonar-scanner \
 				-Dsonar.sources=./dummygradle/src/main/java \
-				-Dsonar.binaries=build/**/*
+				-Dsonar.binaries=build/**/* \
 				-Dsonar.projectKey=employeemgmt23"
 			}
 		}
