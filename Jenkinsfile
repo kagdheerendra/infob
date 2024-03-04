@@ -15,9 +15,15 @@ pipeline {
             }
         }
         stage('SonarQube Analysis') { 
-		    step  {
-				withSonarQubeEnv() { // Will pick the global server connection you have configured
-				  bat 'gradle sonarqube'
+			environment {
+				scannerHome = tool 'sonarqubescanner'
+			}
+			steps {
+				withSonarQubeEnv('sonarqubeserver') {
+					bat "${scannerHome}/bin/sonar-scanner"
+				}
+				timeout(time: 10, unit: 'MINUTES') {
+					waitForQualityGate abortPipeline: true
 				}
 			}
         }
