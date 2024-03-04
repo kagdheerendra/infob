@@ -22,7 +22,7 @@ pipeline {
         withSonarQubeEnv('sonarqubeserver') {
 		   bat "${tool("sonarqubescanner")}/bin/sonar-scanner \
 		   -Dsonar.projectKey=employeemgmt \
-		   -Dsonar.sources=src/ \
+		   -Dsonar.sources=. \
 		   -Dsonar.java.binaries=build/**/* \
 		   -Dsonar.language=java \
 		   -Dsonar.analysis.mode= \
