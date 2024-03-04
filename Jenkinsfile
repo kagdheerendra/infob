@@ -18,7 +18,8 @@ pipeline {
 		}
 		steps {
 			withSonarQubeEnv('sonarqubeserver') {
-				bat "${scannerHome}/bin/sonar-scanner"
+				bat "${scannerHome}/bin/sonar-scanner \
+				-Dsonar.projectKey=employeemgmt23"
 			}
 		}
 	}
