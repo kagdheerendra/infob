@@ -20,6 +20,7 @@ pipeline {
 			withSonarQubeEnv('sonarqubeserver') {
 				bat "${scannerHome}/bin/sonar-scanner \
 				-Dsonar.sources=./dummygradle/ -Dsonar.java.binaries=. -Dsonar.language=java \
+				-Dsonar.webhooks.project=https://9090/sonarqube-webhook/ \
 				-Dsonar.projectKey=dummygradlesonarproject"
 			}
 		}
