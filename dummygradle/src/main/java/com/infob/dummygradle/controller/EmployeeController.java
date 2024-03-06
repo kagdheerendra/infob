@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.infob.dummygradle.entity.Employee;
+import com.infob.dummygradle.model.EmployeePojo;
 import com.infob.dummygradle.service.EmployeeService;
 
 @RestController
@@ -18,8 +19,13 @@ public class EmployeeController {
 	private EmployeeService empService;
 
 	@PostMapping("/save")
-	public ResponseEntity<Employee> saveEmp(@RequestBody Employee emp){
-		return new ResponseEntity<Employee>(empService.saveEmp(emp), HttpStatus.CREATED);
+	public ResponseEntity<Employee> saveEmp(@RequestBody EmployeePojo emp){
+		Employee e = new Employee();
+		e.setEmpId(emp.getEmpId());
+		e.setName(emp.getName());
+		e.setMobileNumber(emp.getMobileNumber());
+		e.setEmailId(emp.getEmailId());
+		return new ResponseEntity<Employee>(empService.saveEmp(e), HttpStatus.CREATED);
 	}
 	
 	@GetMapping("/getAllEmp")
@@ -28,9 +34,14 @@ public class EmployeeController {
 	}
 	
 	@PutMapping("/update/{id}")
-	public ResponseEntity<Employee> updateEmp(@PathVariable("id") int id, @RequestBody Employee emp){
+	public ResponseEntity<Employee> updateEmp(@PathVariable("id") int id, @RequestBody EmployeePojo emp){
 		try {
-			return new ResponseEntity<Employee> (empService.updateEmp(emp, id), HttpStatus.OK);
+			Employee e = new Employee();
+			e.setEmpId(emp.getEmpId());
+			e.setName(emp.getName());
+			e.setMobileNumber(emp.getMobileNumber());
+			e.setEmailId(emp.getEmailId());
+			return new ResponseEntity<Employee> (empService.updateEmp(e, id), HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}

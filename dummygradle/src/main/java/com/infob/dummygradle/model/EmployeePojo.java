@@ -1,16 +1,16 @@
 package com.infob.dummygradle.model;
 
-public class Employee {
+public class EmployeePojo {
 
     private int id;
 	private long empId;
 	private String name;
 	private String mobileNumber;
 	private String emailId;
-	public Employee() {
+	public EmployeePojo() {
 		super();
 	}
-	public Employee(int id, long empId, String name, String mobileNumber, String emailId) {
+	public EmployeePojo(int id, long empId, String name, String mobileNumber, String emailId) {
 		super();
 		this.id = id;
 		this.empId = empId;
