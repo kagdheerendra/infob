@@ -8,8 +8,7 @@ pipeline {
 	}
     stage('Gradle Build') {
       steps {
-	    bat 'cd dummygradle'
-        bat 'docker-compose up'
+	    bat '/dummygradle/docker-compose up'
       }
     }
 
